@@ -34,7 +34,7 @@ everyauth.facebook
 app.configure(function(){
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
-    app.set('view options', {layout: false});
+    app.set('view options', {layout: true});
     app.use(require('connect').bodyParser());
     app.use(app.router);
     app.use(express.static(pub));
@@ -46,7 +46,7 @@ app.configure(function(){
 
 everyauth.helpExpress(app);
 app.get('/', function(req, res){
-  res.render('index');
+  res.render('index', {layout: 'layout.jade'});
 });
 
 app.listen(3000);
