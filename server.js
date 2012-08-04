@@ -9,16 +9,27 @@ var express = require('express'),
 
 var  pub = __dirname + '/public';
 
+var usersByFbId = {};
+
 everyauth.debug = true;
 
 mongoose.connect("mongodb://nodejitsu:562f67fa8e47cd64081d66579e4275ec@alex.mongohq.com:10064/nodejitsudb398284603420");
+
 
 var app = module.exports = express.createServer(
       express.bodyParser(),
       express.static(__dirname + "/public"),
       express.cookieParser(),
-      express.session({sercet: 'teamlevo'})
+      express.session({secret: 'teamlevo'})
 );// Configuration
+
+everyauth.facebook
+        .appId(config.facebook.appId)
+        .appSecret(config.facebook.appSecret)
+        .findOrCreateUser(function (session, accessToken, accessTokExtra, fbUserMetadata){
+          console.log(fbUserMetadata);
+        })
+        .redirectPath('/');
 
 app.configure(function(){
     app.set('views', __dirname + '/views');
@@ -31,6 +42,7 @@ app.configure(function(){
     app.use(express.cookieParser);
     app.use(everyauth.middleware());
 });
+
 
 everyauth.helpExpress(app);
 app.get('/', function(req, res){
