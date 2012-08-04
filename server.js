@@ -26,5 +26,9 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
+app.get('/upload', function(req, res){
+  res.render('upload');
+});
+
 app.listen(3000);
 console.log('Express app started on port 3000');
