@@ -8,10 +8,11 @@
     "jade": ">= 0.0.1",
     "everyauth": "0.2.32",
     "connect": "2.3.x",
-    "mongoose": "2.7.x",
-    "sendgrid": "0.2.3"
+    "mongoose": "2.7.x"
   },
   "engines": {
+    "mongoose": "2.7.x",
+    "sendgrid": "0.2.3"
     "node": "0.6.x",
     "npm": "1.1.x"
   },
