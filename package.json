@@ -12,7 +12,7 @@
   },
   "engines": {
     "mongoose": "2.7.x",
-    "sendgrid": "0.2.3"
+    "sendgrid": "0.2.3",
     "node": "0.6.x",
     "npm": "1.1.x"
   },
