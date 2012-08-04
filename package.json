@@ -2,16 +2,16 @@
   "name": "ForGift",
   "version": "0.0.1",
   "description": "E-Commerce HackDay",
-  "dependencies":{
-      "express": "2.5.11",
-      "jade": ">= 0.0.1",
-      "everyauth": "0.2.32",
-      "connect": "2.3.x",
-      "mongoose": "2.7.x"
+  "dependencies": {
+    "express": "2.5.11",
+    "jade": ">= 0.0.1",
+    "everyauth": "0.2.32",
+    "connect": "2.3.x",
+    "mongoose": "2.7.x"
   },
   "engines": {
-      "node": "0.8.x",
-      "npm":  "1.1.x"
+    "node": "0.8.x",
+    "npm": "1.1.x"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,9 @@
     "e-commerce"
   ],
   "author": "Team LevoLeague",
-  "license": "BSD"
+  "license": "BSD",
+  "subdomain": "forgifts",
+  "scripts": {
+    "start": "server.js"
+  }
 }
-
-
-
