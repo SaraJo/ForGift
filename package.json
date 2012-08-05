@@ -22,9 +22,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/SaraJo/ForGift.git"
-  },
+  }
+  "main": "lib/dmv",
   "scripts": {
     "start": "server.js"
   },
+<<<<<<< HEAD
   "subdomain": "forgift"
 }
+=======
+  "subdomain": "forgiftdev"
+}
+>>>>>>> 98e50755ce3af877571ee3d5137205588be2fc75
