@@ -10,14 +10,25 @@ var express = require('express'),
 
 var  pub = __dirname + '/public';
 
+passport.serializeUser(function(user, done){
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done){
+    done(null, user);
+});
+
 passport.use(new FacebookStrategy({
       clientID: config.facebook.appId,
       clientSecret: config.facebook.appSecret,
       callbackURL: "http://forgift.jit.su/auth/facebook/callback"
     },
     function(accessToken, refreshToken, profile, done){
-      User.findOrCreate({facebook: profile.id}, function(err, user){
+      /* User.findOrCreate({facebook: profile.id}, function(err, user){
         return done(err, user);
+      }); */
+      process.nextTick(function() {
+        return done(null, profile);
       });
     }
 ));
@@ -49,8 +60,8 @@ app.get('/auth/facebook',
 
 app.get('/auth/facebook/callback',
        passport.authenticate('facebook', {
-        successRedirect: '/',
-        failRedirect:'/login'
+        successRedirect: '/'
+        //failRedirect:'/login'
        }));
 
 app.get('/upload', function(req, res){
