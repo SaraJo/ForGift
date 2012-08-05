@@ -3,7 +3,6 @@ var express = require('express'),
     mongoose = require('mongoose'),
     everyauth = require('everyauth'),
     io = require('socket.io');
-    config = require('./lib/config'),
     Schema = mongoose.Schema,
     http = require('http');
 
@@ -21,7 +20,6 @@ app.use(express.errorHandler({ showStack: true, dumpExceptions: true }));
 app.use(express.static(pub));
 
 
-
 app.get('/', function(req, res){
   res.render('index');
 });
@@ -32,3 +30,8 @@ app.get('/upload', function(req, res){
 
 app.listen(3000);
 console.log('Express app started on port 3000');
+
+
+app.get('/', function(req, res){
+    res.render('index', {layout: 'layout.jade'});
+});
