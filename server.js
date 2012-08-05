@@ -23,22 +23,30 @@ var portInUse, cloudConf, cloud,
 var  pub = __dirname + '/public';
 
 passport.use(new FacebookStrategy({
-      clientID: "262426533868894",
-      clientSecret: "3860e83b6c8417b682ecbc53fbaa3e5e",
-      callbackURL: "http://forgift.jit.su/auth/facebook/callback"
+      clientID: "448098451879077",
+      clientSecret: "52a1ff78c6e7b4acb22a5ab83ec096c2",
+      callbackURL: "http://forgiftdev.jit.su/auth/facebook/callback"
+
     },
     function(accessToken, refreshToken, profile, done){
-      User.findOrCreate({facebook: profile.id}, function(err, user){
-        return done(err, user);
-      });
-    }
-));
+      console.log(profile);
+      rest.get('https://graph.facebook.com/me/friends?access_token=' + accessToken
+          ).on('complete', function(data, response) {
+              if (response.statusCode == 200) {
+               console.log(data);
+              }
+              else{
+                console.log(response, data.error);
+              }
+            });    
+ }));
 
 mongoose.connect("mongodb://nodejitsu:562f67fa8e47cd64081d66579e4275ec@alex.mongohq.com:10064/nodejitsudb398284603420");
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.set('view options', {layout: true});
 app.use(require('connect').bodyParser());
+app.use(express.cookieParser()); 
 app.use(app.router);
 app.use(express.errorHandler({ showStack: true, dumpExceptions: true }));
 app.use(express.static(pub));
