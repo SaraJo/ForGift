@@ -6,6 +6,9 @@ var express = require('express'),
     cloudfiles = require("cloudfiles"),
     socket = require('socket.io'),
     Schema = mongoose.Schema,
+    config = ('./lib/config'),
+    passport = require('passport'),
+    FacebookStrategy = require('passport-facebook').Strategy,
     http = require('http'),
     rest = require('restler');
 
@@ -32,23 +35,8 @@ if ( process.env.NODE_ENV ) {
    });
 }
     
-everyauth.debug = true;
-    io = require('socket.io');
-    Schema = mongoose.Schema,
-    config = require('./lib/config'),
-    passport =require('passport'),
-    FacebookStrategy = require('passport-facebook').Strategy,
-    http = require('http');
 
 var  pub = __dirname + '/public';
-
-passport.serializeUser(function(user, done){
-  done(null, user);
-});
-
-passport.deserializeUser(function(obj, done){
-    done(null, user);
-});
 
 passport.use(new FacebookStrategy({
       clientID: config.facebook.appId,
@@ -56,11 +44,8 @@ passport.use(new FacebookStrategy({
       callbackURL: "http://forgift.jit.su/auth/facebook/callback"
     },
     function(accessToken, refreshToken, profile, done){
-      /* User.findOrCreate({facebook: profile.id}, function(err, user){
+      User.findOrCreate({facebook: profile.id}, function(err, user){
         return done(err, user);
-      }); */
-      process.nextTick(function() {
-        return done(null, profile);
       });
     }
 ));
@@ -185,8 +170,8 @@ app.get('/auth/facebook',
 
 app.get('/auth/facebook/callback',
        passport.authenticate('facebook', {
-        successRedirect: '/'
-        //failRedirect:'/login'
+        successRedirect: '/',
+        failRedirect:'/login'
        }));
 
 app.get('/upload', function(req, res){
@@ -198,5 +183,8 @@ app.listen(3000);
 console.log('Express app started on port 3000');
 
 
+app.get('/', function(req, res){
+    res.render('index', {layout: 'layout.jade'});
+});
 
 
