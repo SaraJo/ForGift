@@ -27,10 +27,5 @@
   "scripts": {
     "start": "server.js"
   },
-<<<<<<< HEAD
   "subdomain": "forgift"
 }
-=======
-  "subdomain": "forgiftdev"
-}
->>>>>>> 98e50755ce3af877571ee3d5137205588be2fc75
