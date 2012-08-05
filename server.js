@@ -20,22 +20,6 @@ var portInUse, cloudConf, cloud,
     io = socket.listen( app );
 
 
-if ( process.env.NODE_ENV ) {
-  cloudConf = JSON.parse( fs.readFileSync( __dirname + "/.config", "utf-8" ) );
-
-  cloud = cloudfiles.createClient({
-    auth: {
-      username: cloudConf.username,
-      apiKey: cloudConf.apiKey
-    }
-  });
-
-  cloud.setAuth(function() {
-    console.log( "Authorized Cloud Files" );
-   });
-}
-    
-
 var  pub = __dirname + '/public';
 
 passport.use(new FacebookStrategy({
