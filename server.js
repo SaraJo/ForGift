@@ -3,7 +3,6 @@ var express = require('express'),
     mongoose = require('mongoose'),
     everyauth = require('everyauth'),
     io = require('socket.io');
-    config = require('./lib/config'),
     Schema = mongoose.Schema,
     http = require('http');
 
@@ -20,38 +19,6 @@ app.use(app.router);
 app.use(express.errorHandler({ showStack: true, dumpExceptions: true }));
 app.use(express.static(pub));
 
-<<<<<<< HEAD
-mongoose.connect("mongodb://nodejitsu:562f67fa8e47cd64081d66579e4275ec@alex.mongohq.com:10064/nodejitsudb398284603420");
-
-
-var app = module.exports = express.createServer(
-      express.bodyParser(),
-      express.static(__dirname + "/public"),
-      express.cookieParser(),
-      express.errorHandler({showStack: true, dumpExceptions: true})
-      express.session({secret: 'teamlevo'})
-);// Configuration
-
-app.configure(function(){
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade');
-    app.set('view options', {layout: true});
-    app.use(require('connect').bodyParser());
-    app.use(app.router);
-    app.use(express.static(pub));
-    app.use(express.bodyParser());
-    app.use(express.static(__dirname + "/public"));
-    app.use(express.cookieParser());
-    app.use(express.errorHandler({showStack: true, dumpExceptions: true}));
-    app.use(express.session({secret: 'teamlevo'}));
-    app.use(express.cookieParser);
-    app.use(everyauth.middleware());
-});
-
-
-everyauth.helpExpress(app);
-=======
-
 
 app.get('/', function(req, res){
   res.render('index');
@@ -60,7 +27,6 @@ app.get('/', function(req, res){
 app.get('/upload', function(req, res){
   res.render('upload');
 });
->>>>>>> 1f0cfccb60409aa57cca58e7999ff93f5f8c002f
 
 app.listen(3000);
 console.log('Express app started on port 3000');
