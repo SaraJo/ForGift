@@ -11,7 +11,8 @@
     "mongoose": "2.7.x",
     "sendgrid": "0.2.3",
     "passport": "0.1.12",
-    "oauth": "0.9.8"
+    "oauth": "0.9.8",
+    "socket.io": "0.9.9"
   },
   "engines": {
     "node": "0.6.x",
