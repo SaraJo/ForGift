@@ -2,8 +2,10 @@ var express = require('express'),
     connect = require('connect'),
     mongoose = require('mongoose'),
     everyauth = require('everyauth'),
-    config = require('./config'),
     io = require('socket.io');
+    config = require('./lib/config'),
+    Schema = mongoose.Schema,
+    http = require('http');
 
 var  pub = __dirname + '/public';
 
@@ -17,6 +19,7 @@ app.use(require('connect').bodyParser());
 app.use(app.router);
 app.use(express.errorHandler({ showStack: true, dumpExceptions: true }));
 app.use(express.static(pub));
+
 
 
 app.get('/', function(req, res){
