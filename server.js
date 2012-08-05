@@ -22,6 +22,14 @@ var portInUse, cloudConf, cloud,
 
 var  pub = __dirname + '/public';
 
+passport.serializeUser(function(user, done){
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done){
+  done(null, obj);
+});
+
 passport.use(new FacebookStrategy({
       clientID: "448098451879077",
       clientSecret: "52a1ff78c6e7b4acb22a5ab83ec096c2",

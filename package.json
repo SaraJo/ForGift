@@ -1,7 +1,11 @@
 {
   "author": "Team LevoLeague",
   "name": "ForGift",
+<<<<<<< HEAD
   "version": "0.0.1-19",
+=======
+  "version": "0.0.1-16",
+>>>>>>> 8fbac165552aa606a28c3509f1bdde4b6e7fbf7f
   "description": "E-Commerce HackDay",
   "dependencies": {
     "express": "2.5.11",
