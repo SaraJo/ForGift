@@ -1,3 +1,194 @@
-p Welcome to For Gift
-a(href="/auth/facebook") Facebook Login
+!!! strict
+html(xmlns='http://www.w3.org/1999/xhtml')
+head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    title forgift
+    link(rel="stylesheet", href="/stylesheets/forgift.css")
+    script(type='text/javascript', src='/javascripts/index.js')
+  body
+    .wrapper
+      .shell
+        .nav
+          .logo
+            a(href='#home')
+              span#for for
+              span#gift gift
+          .bar
+            a(href='#whot')
+              p.whon who
+            //
+              <p class="info">birthday person</p>
+            a(href='#whatt')
+              p.whatn what
+            //
+              <p class="info">select gift</p>
+            a(href='#where')
+              p.wheren how
+            //
+              <p class="info">destination</p>
+        .content
+          .home
+          #home
+          .first
+            img(src='images/background.jpg', alt='', width='900')
+          .divider  
+          #whot
+          .who
+            a(name='who')
+              h3 who
+            p who do you want to send it to
+            a(href='#')
+              img(src='images/facebook.jpg', alt='')
+            br
+            .table1
+              a(href='#')
+                .friends
+                  img(src='images/sample1.jpg', alt='')
+                  p.caption
+                    em name
+              a(href='#')
+                .friends
+                  img(src='images/sample2.jpg', alt='')
+                  p.caption
+                    em name
+              a(href='#')
+                .friends
+                  img(src='images/sample3.jpg', alt='')
+                  p.caption
+                    em name
+              a(href='#')
+                .friends
+                  img(src='images/sample4.jpg', alt='')
+                  p.caption
+                    em name
+              br
+            .table2
+              a(href='#')
+                .friends
+                  img(src='images/sample1.jpg', alt='')
+                  p.caption
+                    em name
+              a(href='#')
+                .friends
+                  img(src='images/sample2.jpg', alt='')
+                  p.caption
+                    em name
+              a(href='#')
+                .friends
+                  img(src='images/sample3.jpg', alt='')
+                  p.caption
+                    em name
+              a(href='#')
+                .friends
+                  img(src='images/sample4.jpg', alt='')
+                  p.caption
+                    em name
+            p.suggestion
+              strong People who you should NEVER forget:
+              br
+              | mom
+              br
+              | grandma
+              br
+              | pops
+              br
+              | best friend
+              br
+              | significant other
+              br
+              | your investors
+              br
+              | press
+              br
+              | sibling
+              br
+              | boss
+              br
+          .divider  
+          #whatt
+          .what
+            a(name='what')
+              h3 what
+            p what do you want to send
+            .whatpart
+              p#photo suggested poses from the birthday experts:
+              .people
+                img(src='images/sample1.jpg', alt='')
+                p.caption
+                  em You're the gang to my 'sta
+              .people
+                img(src='images/sample2.jpg', alt='')
+                p.caption
+                  em Yay you were born today!
+              .people
+                img(src='images/sample3.jpg', alt='')
+                p.caption
+                  em Surprise I didn't forget your birthday
+              .people
+                img(src='images/sample4.jpg', alt='')
+                p.caption
+                  em Heyyyyyyyyy it's your birthday
+              a#take-photo(href='#') TAKE YOUR PICTURE
+              #preview
+              div.span1
+                  a.btn.btn-large.btn-danger(href="#")
+                  b.icon-camera.icon-white
+              div#saved-photo.row.navbar-inner
+                  ul#saved
+              #container
+              div.container
+                div#obsolete.row
+                  h1 Your browser will soon be obsolete.
 
+                  h3 To use this demo, you will need:
+                  dl
+                    dd
+                      a(href="http://dev.opera.com/labs", target="_blank") Opera Labs Camera build
+                    dd
+                      a(href="http://tools.google.com/dlpage/chromesxs", target="_blank") Google Chrome Canary
+                      p.
+                      and enable MediaStream in chrome://flags
+                  h3
+                    a(href="http://weblog.bocoup.com/javascript-webrtc-opera-mobile-12/") Find out more
+              form.message(method='get', action='')
+                label WRITE YOUR MESSAGE : 
+                br
+                input#message(type='text', value='300 char limit')
+          .divider  
+          #where
+          .where
+            h3 how
+            p how will you send it (by paying us with all of your money)
+            a(name='where')  
+            form.billing(action ='success', method='post')
+              label First Name
+              input#FirstName(type='text', value='first name')
+              br
+              label Last Name
+              input#LastName(type='text', value='last name')
+              br
+              label Address
+              input#address(type='text', value='address')
+              br
+              label City
+              input#City(type='text', value='city')
+              br
+              label State
+              input#State(type='text', value='state')
+              br
+              label Zip
+              input#Zipcode(type='text', value='zip')
+              br
+              label Credit Card Number
+              input#ccnumber(type='text', value='###########')
+              br
+              label Expiration Date
+              input#exp(type='text', value='mm/yy')
+              br
+              label Security Code
+              input#cvn(type='text', value='###')
+              input(type='submit', value='Submit')
+          .divider  
+          .footer
+            p
+              br

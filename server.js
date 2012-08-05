@@ -46,7 +46,7 @@ passport.use(new FacebookStrategy({
               else{
                 console.log(response, data.error);
               }
-            });    
+            });
  }));
 
 mongoose.connect("mongodb://nodejitsu:562f67fa8e47cd64081d66579e4275ec@alex.mongohq.com:10064/nodejitsudb398284603420");
@@ -54,7 +54,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.set('view options', {layout: true});
 app.use(require('connect').bodyParser());
-app.use(express.cookieParser()); 
+app.use(express.cookieParser());
 app.use(app.router);
 app.use(express.errorHandler({ showStack: true, dumpExceptions: true }));
 app.use(express.static(pub));
@@ -158,7 +158,7 @@ io.set( "log level", 1 );io.sockets.on( "connection", function( client ) {
 
 app.get('/', function(req, res){
   console.log(req.user);
-  res.render('index');
+  res.render('index', {layout: 'layout.jade'});
 
 });
 
@@ -179,12 +179,14 @@ app.get('/upload', function(req, res){
 });
 
 
+app.post('/success', function(req, res){
+  res.render('success', {layout: 'layout.jade'});
+});
+
+
+
 app.listen(3000);
 console.log('Express app started on port 3000');
 
-
-app.get('/', function(req, res){
-    res.render('index', {layout: 'layout.jade'});
-});
 
 
