@@ -1,0 +1,77 @@
+body {
+  padding-top: 40px;
+  margin: 0px;
+/*  padding: 50px;*/
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black;
+}
+
+a {
+  color: #00B7FF;
+}
+
+video {
+  padding: 0px;
+  margin: 0px;
+}
+
+canvas {
+  position: absolute;
+  top: -10000px;
+  left: -10000px;
+}
+
+#obsolete {
+  margin-top: 100px;
+  display: none;
+}
+
+#container {
+  margin: 0 auto;
+}
+
+#saved-photo {
+  position: fixed;
+  left: 0px !important;
+  right: 0px !important;
+  bottom: 0px !important;
+  height: 100px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+#saved {
+  width: 100%;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 15px;
+}
+
+#saved li {
+ display: inline;
+}
+
+#saved li img {
+  float: left;
+  width: 7em;
+  padding: .6em .7em 0 0;
+}
+#saved li img:first {
+  padding-left: -1px;
+}
+#take-photo {
+  position: fixed;
+  right: 0px;
+  top: 50px;
+  z-index: 9;
+}
+#view-saved {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 9;
+  float: left;
+  width: 10em;
+  padding: 10px;
+}
