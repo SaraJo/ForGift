@@ -34,13 +34,13 @@ if ( process.env.NODE_ENV ) {
     console.log( "Authorized Cloud Files" );
    });
 }
-
+    
 
 var  pub = __dirname + '/public';
 
 passport.use(new FacebookStrategy({
-      clientID: config.facebook.appId,
-      clientSecret: config.facebook.appSecret,
+      clientID: "262426533868894",
+      clientSecret: "3860e83b6c8417b682ecbc53fbaa3e5e",
       callbackURL: "http://forgift.jit.su/auth/facebook/callback"
     },
     function(accessToken, refreshToken, profile, done){
