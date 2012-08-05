@@ -22,15 +22,21 @@ var portInUse, cloudConf, cloud,
 
 var  pub = __dirname + '/public';
 
+passport.serializeUser(function(user, done){
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done){
+  done(null, obj);
+});
+
 passport.use(new FacebookStrategy({
       clientID: "262426533868894",
       clientSecret: "3860e83b6c8417b682ecbc53fbaa3e5e",
       callbackURL: "http://forgift.jit.su/auth/facebook/callback"
     },
     function(accessToken, refreshToken, profile, done){
-      User.findOrCreate({facebook: profile.id}, function(err, user){
-        return done(err, user);
-      });
+       console.log(profile);
     }
 ));
 
