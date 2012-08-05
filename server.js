@@ -31,8 +31,7 @@ if ( process.env.NODE_ENV ) {
     console.log( "Authorized Cloud Files" );
    });
 }
-    
-everyauth.debug = true;
+
     io = require('socket.io');
     Schema = mongoose.Schema,
     config = require('./lib/config'),
